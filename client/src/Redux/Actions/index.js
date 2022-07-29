@@ -12,7 +12,7 @@ import axios from 'axios';
 
 export function getCountries() {
     return async function (dispatch) {
-        let countries = await axios.get('http://localhost:3001/Countries');
+        let countries = await axios.get('/Countries');
         return dispatch({
             type: GET_ALL_COUNTRIES,
             payload: countries.data,
@@ -22,7 +22,7 @@ export function getCountries() {
 
 export function getCountriesByName(country) {
     return async function (dispatch) {
-        let countryFiltered = await axios.get(`http://localhost:3001/Countries?name=${country}`);
+        let countryFiltered = await axios.get(`/Countries?name=${country}`);
         return dispatch({
             type: COUNTRY_BY_NAME,
             payload: countryFiltered.data,
@@ -33,7 +33,7 @@ export function getCountriesByName(country) {
 export function getCountriesById(id) {
     // console.log('ACTIONS ' + id)
     return async function (dispatch) {
-        let countryFilteredForId = await axios.get(`http://localhost:3001/Countries/${id}`);
+        let countryFilteredForId = await axios.get(`/Countries/${id}`);
         return dispatch({
             type: COUNTRY_BY_ID,
             payload: countryFilteredForId.data,
@@ -44,7 +44,7 @@ export function getCountriesById(id) {
 
 export function getActivities() {
     return async function (dispatch) {
-        let activities = await axios.get('http://localhost:3001/Activities')
+        let activities = await axios.get('/Activities')
         return dispatch({
             type: GET_ALL_ACTIVITY,
             payload: activities.data
@@ -55,7 +55,7 @@ export function getActivities() {
 export function filterCountriesByActivity(activity) {
     return async function (dispatch) {
         if (activity !== 'All') {
-            let countriesFiltered = await axios.get(`http://localhost:3001/Activities/filterActivity/${activity}`)
+            let countriesFiltered = await axios.get(`/Activities/filterActivity/${activity}`)
             return dispatch({
                 type: FILTER_BY_ACTIVITY,
                 payload: countriesFiltered.data
@@ -73,7 +73,7 @@ export function filterCountriesByActivity(activity) {
 export function filterCountriesByContinent(continent) {
     return async function (dispatch) {
         if (continent !== 'All') {
-            let countriesFiltered = await axios.get(`http://localhost:3001/Countries/filterContinent/${continent}`)
+            let countriesFiltered = await axios.get(`/Countries/filterContinent/${continent}`)
             return dispatch({
                 type: FILTER_BY_CONTINENT,
                 payload: countriesFiltered.data
@@ -91,7 +91,7 @@ export function filterCountriesByContinent(continent) {
 // export function orderByPopulation(order) {
 //     return async function (dispatch) {
 //         if (order !== 'All') {
-//             let orderedCountries = await axios.get(`http://localhost:3001/Countries/orderPopulation/${order}`)
+//             let orderedCountries = await axios.get(`/Countries/orderPopulation/${order}`)
 //             return dispatch({
 //                 type: ORDER_BY_POPULATION,
 //                 payload: orderedCountries.data
@@ -125,7 +125,7 @@ export function orderByName(payload) {
 
 export function postActivity(data) {
     return async function (dispatch) {
-        let newActivity = await axios.post('http://localhost:3001/Activities', data);
+        let newActivity = await axios.post('/Activities', data);
         return newActivity;
     }
 }
