@@ -1,0 +1,61 @@
+
+.container{
+    width: 400px;
+}
+
+.inputSearchBar{
+    width: 60%;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+}
+.inputSearchBar:focus{
+    box-shadow: 1px 1px 10px white;
+}
+
+.containerForm{
+    width: 100%;
+}
+
+.containerForm button {
+    width: 80px;
+    padding: 5px 5px;
+    margin: 0px 10px;
+    border-radius: 3px;
+    font-size: 15px;
+    border: none;
+    background-color: #959288;
+}
+
+.containerForm button:hover {
+    cursor: pointer;
+    background-color: #6B6B6B;
+}
+
+.borderError{
+    border: 1px solid red;
+}
+.inputError{
+    font-size: 15px;
+    color: red;
+}
+
+@media screen and (max-width: 992px) {
+    .container{
+        width: 100%;
+        text-align: start;
+        padding-left: 10px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .container{
+        width: 40%;
+    }
+    .inputSearchBar{
+        width: 50%;
+        
+    }
+}

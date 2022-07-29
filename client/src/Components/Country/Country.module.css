@@ -1,0 +1,29 @@
+.containerCountry h1, p{
+    font-family: 'Readex Pro', sans-serif;
+    color: white;
+}
+
+.containerCountry p {
+    font-size: 20px;
+}
+
+.containerCountry a{
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.containerCountry a img{
+    width: 90%;
+    height: auto;
+}
+
+@media screen and (min-width: 100px) and (max-width: 576px) {
+    .containerCountry{
+        font-size: 14px;
+    }
+}

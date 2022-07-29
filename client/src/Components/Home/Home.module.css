@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+/*font-family: 'Audiowide', cursive;*/
+
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap');
+/*font-family: 'Readex Pro', sans-serif;*/
+
+.container {
+    width: 100%;
+    height: auto;
+}
+
+.containerHome {
+    width: 100%;
+    height: 86px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(32, 32, 32);
+    justify-content: space-evenly;
+    position: fixed;
+    top: 0;
+}
+
+.containerTitle {
+    width: 400px;
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    z-index: 99;
+}
+
+.containerTitle h1 {
+    color: white;
+    font-family: 'Audiowide', cursive;
+}
+
+.containerNavegarion {
+    width: 66%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    /* border: 1px solid green; */
+}
+
+
+
+.containerNavegarion ul {
+    width: 390px;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0px 10px; */
+    padding-left: 6px;
+}
+
+.containerNavegarion ul p {
+    color: white;
+    font-family: 'Readex Pro', sans-serif;
+    /* padding: 0 2px; */
+    /*USAR ESTE PARA LO DEMAS*/
+}
+
+.containerNavegarion ul p:hover {
+    cursor: pointer;
+    color: #959288;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.list {
+    list-style: none;
+}
+
+.containerFilter {
+    width: 350px;
+    border-radius: 10px;
+    background-color: rgb(32, 32, 32);
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 150px;
+    transform: translateX(-0);
+    transition: transform 0.4s, opacity 0.5s ease-out;
+}
+
+.containerFilter.closed {
+    transform: translateX(-90%);
+}
+
+.containerButtonClosed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerButtonClosed.closed {
+    opacity: 0;
+    height: 0px;
+    overflow: hidden;
+    transition: opacity 0.5s ease-out;
+}
+
+.buttonFilter {
+    padding: 5px 13px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: 'Readex Pro', sans-serif;
+    background-color: #959288;
+}
+
+.buttonFilter:hover {
+    cursor: pointer;
+    background-color: #6B6B6B;
+}
+
+
+.buttonFilters {
+    display: none;
+    font-size: 25px;
+}
+
+.buttonFilters.open {
+    display: block;
+    cursor: pointer;
+}
+
+.containerSelects {
+    width: 90%;
+}
+
+.containerSelects.closed {
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+}
+
+
+.containerFilter h2 {
+    width: 80%;
+    padding-left: 30px;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.buttonFilter {
+    width: 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+}
+
+
+.containerSelect1 {
+    margin-bottom: 15px;
+}
+
+.containerSelect1 h3 {
+    font-size: 15px;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.containerSelect1 select {
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.containerSelect1 select:hover {
+    cursor: pointer;
+}
+
+.containerSelect1 select option {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+
+.containerSelect2 {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.containerSelect2 h3 {
+    width: 100%;
+    font-size: 15px;
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.containerSelect2 div {
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.containerSelect2 div select {
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.containerSelect2 select:hover {
+    cursor: pointer;
+}
+
+.containerSelect2 select option {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+
+.containerSelect3 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerSelect3 h3 {
+    width: 100%;
+}
+
+.containerSelect3 select {
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.containerSelect1 select:hover {
+    cursor: pointer;
+}
+
+.containerSelect1 select option {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+
+.containerCountries {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    padding: 10px;
+}
+
+.divsCountries {
+    width: 30%;
+    margin-bottom: 50px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+.divsCountries:hover {
+    background-color: rgb(184, 176, 176);
+    box-shadow: 0 0 15px white;
+}
+
+
+
+
+/* <--------- Menu desplegable para medidas menenos a 992px -----------> */
+
+.containerButton {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 42;
+}
+
+.hamburger {
+    width: 40px;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+}
+
+.line {
+    width: 100%;
+    height: 24%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.5s;
+
+}
+
+.line:first-child {
+    top: 0;
+}
+
+.line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line:last-child {
+    top: 75%;
+    bottom: 0;
+}
+
+.hamburger.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open .line:first-child {
+    top: 40%;
+    transform: rotate(45deg);
+}
+
+.hamburger.open .line:last-child {
+    transform: rotate(-45deg);
+    top: 40%;
+}
+
+.mostrar {
+    display: block;
+}
+
+
+@media screen and (max-width: 992px) {
+    .containerHome {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .containerTitle {
+        width: 60%;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 20px;
+    }
+
+    .containerButton {
+        width: 15%;
+    }
+
+    /* .containerNavegarion {
+        display: none;
+    } */
+
+    .containerHome {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: rgb(32, 32, 32);
+        position: fixed;
+        top: 0;
+        z-index: 999;
+    }
+
+
+    .containerTitle {
+        width: 350px;
+        /* border: 1px solid blue; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .containerButton {
+        width: 15%;
+        z-index: 100;
+    }
+
+    .containerNavegarion {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-bottom: 5px;
+        transform: translateY(-100%);
+        opacity: 0;
+        height: 0px;
+        overflow: hidden;
+        transition: transform 0.5s, opacity 0.5s ease-out;
+
+        background-color: rgb(32, 32, 32);
+    }
+
+    .containerNavegarion.open {
+        transform: translateY(-0);
+        opacity: 1;
+        height: auto;
+    }
+
+
+
+    .containerNavegarion ul {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 0px 10px;
+        text-align: start;
+        padding: 0;
+    }
+
+}
+
+@media screen and (min-width: 100px) and (max-width: 576px) {
+
+    .containerHome {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .containerNavegarion {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-bottom: 5px;
+        transform: translateY(-100%);
+        opacity: 0;
+        height: 0px;
+        overflow: hidden;
+        transition: transform 0.5s, opacity 0.5s ease-out;
+        background-color: rgb(32, 32, 32);
+    }
+
+    .containerNavegarion.open {
+        transform: translateY(-0);
+        opacity: 1;
+        height: auto;
+    }
+
+    .containerTitle {
+        width: 80%;
+        display: flex;
+        justify-content: flex-start;
+        /* margin: 0; */
+        padding: 0;
+        background-color: rgb(32, 32, 32);
+    }
+
+    .containerTitle h1 {
+        font-size: 7.7vw;
+        background-color: rgb(32, 32, 32);
+    }
+    .containerButton{
+        width: 20%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(32, 32, 32);
+    }
+
+    .containerHome {
+        height: auto;
+    }
+
+    .containerCountries {
+        /* border: 1px solid black; */
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 130px;
+
+        padding: 0;
+    }
+
+    .divsCountries {
+        width: 80%;
+        margin-bottom: 50px;
+        border: 1px solid rgb(100, 100, 100);
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .divsCountries {
+        width: 40%;
+        margin-bottom: 50px;
+        border: 1px solid rgb(100, 100, 100);
+        border-radius: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .divsCountries {
+        width: 40%;
+        margin-bottom: 50px;
+        border: 1px solid rgb(100, 100, 100);
+        border-radius: 10px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .containerNavegarion ul {
+        width: 345px;
+        display: flex;
+        justify-content: space-between;
+        /* margin: 0px 10px; */
+        padding: 0 6px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .containerButton {
+        display: none;
+    }
+}
