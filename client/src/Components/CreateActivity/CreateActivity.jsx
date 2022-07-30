@@ -135,7 +135,12 @@ export default function CreateActivity() {
             //     dispatch(getActivities())
             // ])
 
-            dispatch(postActivity(Activity))
+            // dispatch(postActivity(Activity))
+
+            Promise.all([
+                dispatch(postActivity(Activity)),
+                dispatch(getActivities())
+            ])
                 .then(alert("Activity created."))
                 .catch(err => console.log(err));
 
@@ -311,10 +316,10 @@ export default function CreateActivity() {
                         </div>
 
                         <div className={styles.containerSubmit}>
-                            <button 
-                            type="submit" 
-                            disabled={errorsExist} 
-                            className={`${styles.button} ${errorsExist !== true && styles.open}`}>
+                            <button
+                                type="submit"
+                                disabled={errorsExist}
+                                className={`${styles.button} ${errorsExist !== true && styles.open}`}>
                                 Submit
                             </button>
                         </div>

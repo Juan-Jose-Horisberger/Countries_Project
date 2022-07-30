@@ -16,7 +16,7 @@
 
 .LandingPageVideo{
     width: 100%;
-    min-width: 1200px;
+    min-width: 1700px;
     height: auto; /*Adamtamos el video verticalmente al */
     display: flex;
     z-index: 0;
@@ -32,6 +32,7 @@
 .infoLandingPage h1 {
     font-family: 'Edu SA Beginner', cursive;
     font-size: 60px;
+    color: white;
 }
 
 .infoLandingPage p {
@@ -45,10 +46,12 @@
     background-color: transparent;
     border: 1px solid rgb(207, 207, 207);
     border-radius: 5px;
+    color: white;
 }
 
 .infoLandingPage button:hover{
     background-color: rgb(255, 255, 255);
     cursor: pointer;
+    color: black;
 }
 
