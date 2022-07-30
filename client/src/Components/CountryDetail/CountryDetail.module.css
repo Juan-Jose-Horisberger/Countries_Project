@@ -1,7 +1,10 @@
-h1, h2, p{
+h1,
+h2,
+p {
     font-family: 'Readex Pro', sans-serif;
 }
-.container{
+
+.container {
     width: 100%;
     height: auto;
     margin: 50px 0;
@@ -9,31 +12,31 @@ h1, h2, p{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     background-color: transparent;
 }
 
-.containerNum1{
+.containerNum1 {
     width: 60%;
     margin-bottom: 20px;
     background-color: rgb(77, 74, 74);
     border-radius: 10px;
 }
 
-.containerHomeAndName{
+.containerHomeAndName {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.containerHomeAndName div{
+.containerHomeAndName div {
     width: 49.5%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.containerHomeAndName div a{
+.containerHomeAndName div a {
     width: 110px;
     height: 50px;
     border-radius: 6px;
@@ -44,7 +47,7 @@ h1, h2, p{
     background-color: #959288;
 }
 
-.containerHomeAndName div a:hover{
+.containerHomeAndName div a:hover {
     box-shadow: 0 0 15px white;
     background-color: #6B6B6B;
 }
@@ -52,18 +55,18 @@ h1, h2, p{
 
 
 
-.containerHomeAndName h1{
+.containerHomeAndName h1 {
     width: 50%;
     font-size: 30px;
 }
 
 
-.dataContainer{
+.dataContainer {
     width: 100%;
     display: flex;
 }
 
-.containerImg{
+.containerImg {
     width: 60%;
     display: flex;
     align-items: center;
@@ -76,7 +79,7 @@ h1, h2, p{
     height: auto;
 }
 
-.containerInfo{
+.containerInfo {
     width: 50%;
     padding: 20px 40px;
     border-radius: 5px;
@@ -85,7 +88,7 @@ h1, h2, p{
     background-color: rgb(134, 134, 134);
 }
 
-.containerInfo p{
+.containerInfo p {
     text-align: justify;
 }
 
@@ -95,26 +98,26 @@ h1, h2, p{
     color: white;
 }
 
-.containerHomeAndName h1{
+.containerHomeAndName h1 {
     width: 50%;
 }
 
-.containerNum2{
+.containerNum2 {
     width: 90%;
     border-radius: 10px;
     background-color: #4D4A4A;
 }
 
-.containerInfoActivity{
+.containerInfoActivity {
     width: 100%;
     /* display: flex; */
 }
 
-.containerTitle{
+.containerTitle {
     width: 100%;
 }
 
-.algo{
+.algo {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -122,7 +125,7 @@ h1, h2, p{
 }
 
 
-.algo div{
+.algo div {
     width: 280px;
     margin: 20px 20px;
     background-color: rgb(134, 134, 134);
@@ -130,11 +133,11 @@ h1, h2, p{
 }
 
 @media screen and (max-width: 992px) {
-    .containerNum1{
+    .containerNum1 {
         width: 70%;
     }
 
-    .containerHomeAndName div a{
+    .containerHomeAndName div a {
         width: 80px;
         height: 40px;
         border-radius: 6px;
@@ -149,25 +152,26 @@ h1, h2, p{
         font-size: 14px;
     }
 
-    .dataContainer{
+    .dataContainer {
         width: 100%;
         display: flex;
     }
-    
-    .dataContainer{
+
+    .dataContainer {
         width: 100%;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
     }
-    
-    .containerInfo{
+
+    .containerInfo {
         width: 50%;
         margin: 0;
         margin-bottom: 20px;
     }
-    .containerImg{
+
+    .containerImg {
         width: 70%;
         /* min-width: 250px; */
         display: flex;
@@ -176,9 +180,44 @@ h1, h2, p{
         flex-wrap: nowrap;
         padding: 25px;
     }
-    
+
     .containerImg img {
         width: 100%;
         height: auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .containerNum1 {
+        width: 90%;
+    }
+
+    .containerHomeAndName {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .containerHomeAndName div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+    .container div a {
+        width: 60px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .containerHomeAndName h1 {
+        width: 100%;
+        font-size: 21px;
+    }
+
+    .containerInfo{
+        width: 90%;
+        padding: 0;
     }
 }
