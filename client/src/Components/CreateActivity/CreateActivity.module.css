@@ -23,7 +23,7 @@
     text-align: start;
     border: 1px solid rgb(0, 0, 0);
     background-color: rgb(184, 176, 176);
-    box-shadow: 0 0 15px white;
+    box-shadow: 0 0 10px white;
     padding: 15px;
     display: flex;
     align-self: flex-start;
@@ -67,7 +67,7 @@
     margin-top: 60px;
     border: 1px solid rgb(0, 0, 0);
     background-color: rgb(184, 176, 176);
-    box-shadow: 0 0 15px white;
+    box-shadow: 0 0 10px white;
 }
 
 .containerHome {
@@ -146,6 +146,7 @@
     display: flex;
     align-items: center;
     padding-right: 15px;
+    font-weight: bold;
 }
 
 .containerNrm1 span,
@@ -173,10 +174,11 @@
     width: 100%;
     height: 30px;
     font-size: 14px;
-    /* border: 1px solid red; */
     font-family: 'Readex Pro', sans-serif;
     border-radius: 5px;
     outline: none;
+    background-color: #4b4b4b;
+    color: white;
 }
 
 .containerInputName input:focus {
@@ -187,7 +189,8 @@
     width: 100%;
     height: 36px;
     font-size: 14px;
-    /* border: 1px solid red; */
+    background-color: #4b4b4b;
+    color: white;
     font-family: 'Readex Pro', sans-serif;
     border-radius: 5px;
     outline: none;
@@ -214,6 +217,8 @@
     font-family: 'Readex Pro', sans-serif;
     border-radius: 5px;
     outline: none;
+    background-color: #4b4b4b;
+    color: white;
 }
 
 
@@ -234,6 +239,8 @@
     font-family: 'Readex Pro', sans-serif;
     border-radius: 5px;
     outline: none;
+    background-color: #4b4b4b;
+    color: white;
 }
 
 .containerInputSeason label {
@@ -253,6 +260,8 @@
     font-family: 'Readex Pro', sans-serif;
     border-radius: 5px;
     outline: none;
+    background-color: #4b4b4b;
+    color: white;
 }
 
 .containerInputCountries label {
@@ -321,8 +330,7 @@
     margin-bottom: 10px;
     background-color: #6B6B6B;
     border: none;
-    color: white;
-    color: #6B6B6B;
+    color: #353535;
 }
 
 .containerSubmit .button.open {

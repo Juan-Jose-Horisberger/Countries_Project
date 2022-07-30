@@ -127,6 +127,11 @@
 .buttonFilters.open {
     display: block;
     cursor: pointer;
+    background-color: #959288;
+}
+
+.buttonFilters.open:hover {
+    background-color: #6B6B6B;
 }
 
 .containerSelects {
@@ -162,6 +167,7 @@
 .containerSelect1 h3 {
     font-size: 15px;
     font-family: 'Readex Pro', sans-serif;
+    color: white;
 }
 
 .containerSelect1 select {
@@ -171,6 +177,8 @@
     border-radius: 5px;
     border: none;
     outline: none;
+    background-color: #4b4b4b;
+    color: white;
 }
 
 .containerSelect1 select:hover {
@@ -194,6 +202,7 @@
     width: 100%;
     font-size: 15px;
     font-family: 'Readex Pro', sans-serif;
+    color: white;
 }
 
 .containerSelect2 div {
@@ -209,6 +218,8 @@
     border-radius: 5px;
     border: none;
     outline: none;
+    background-color: #4b4b4b;
+    color: white;
 }
 
 .containerSelect2 select:hover {
@@ -228,6 +239,7 @@
 
 .containerSelect3 h3 {
     width: 100%;
+    color: white;
 }
 
 .containerSelect3 select {
@@ -237,6 +249,8 @@
     border-radius: 5px;
     border: none;
     outline: none;
+    background-color: #4b4b4b;
+    color: white;
 }
 
 .containerSelect1 select:hover {
@@ -468,7 +482,8 @@
         font-size: 7.7vw;
         background-color: rgb(32, 32, 32);
     }
-    .containerButton{
+
+    .containerButton {
         width: 20%;
         margin: 0;
         padding: 0;
