@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { getCountries, postActivity } from '../../Redux/Actions';
+import { getActivities, getCountries, postActivity } from '../../Redux/Actions';
 import styles from './CreateActivity.module.css'
 import { validate } from './Validate.js'
 
@@ -139,7 +139,8 @@ export default function CreateActivity() {
 
             Promise.all([
                 dispatch(postActivity(Activity)),
-                dispatch(getActivities())
+                dispatch(getActivities()),
+                dispatch(getCountries())
             ])
                 .then(alert("Activity created."))
                 .catch(err => console.log(err));
