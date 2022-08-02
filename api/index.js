@@ -23,7 +23,7 @@ const { Country, Activity } = require('./src/db');
 const { dbLoader } = require('./src/controllers/utils');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   //Precarga de base de datos
 
     const allInfo = await Country.findAll({ include: Activity });
