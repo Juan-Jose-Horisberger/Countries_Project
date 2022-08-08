@@ -23,6 +23,8 @@ const { Country, Activity } = require('./src/db');
 const { dbLoader } = require('./src/controllers/utils');
 
 // Syncing all the models at once.
+const PORT = process.env.PORT ||5000;
+
 conn.sync({ force: false }).then(async () => {
   //Precarga de base de datos
 
@@ -31,7 +33,7 @@ conn.sync({ force: false }).then(async () => {
       dbLoader();
     }
 
-  server.listen(process.env.PORT, () => {
+  server.listen(PORT, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 
