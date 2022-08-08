@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300&display=swap');
+
 .containerUl{
     width: 100%;
     display: flex;
@@ -5,6 +7,7 @@
     /* justify-content: space-around; */
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     background-color: #555964;
     padding: 15px 0;
     margin: 0;
@@ -23,4 +26,38 @@
 
 .containerUl li button:hover {
     cursor: pointer;
+}
+
+.containerUl input{
+    /* border: 1px solid red; */
+    width: 55px;
+    height: 32px;
+    text-align: center;
+    margin-right: 5px;
+    display: flex;
+    background-color: #959288;
+    color: white;
+    border: none;
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 18px;
+}
+
+/* .buttonPrevious{
+    display: none;
+} */
+
+.buttonPrevious:hover{
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
+}
+
+/* .buttonPrevious.open{
+    display: block;
+} */
+
+.buttonNext:hover{
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
 }

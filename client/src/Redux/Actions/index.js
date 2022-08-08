@@ -7,9 +7,12 @@ import {
     FILTER_BY_CONTINENT,
     ORDER_BY_POPULATION,
     ORDER_BY_NAME,
+    DELETE_ACTIVITY,
+    PUT_ACTIVITY,
 } from './ActionsTypes';
 import axios from 'axios';
 
+/*~~~~~~~~~~~~~~GETS~~~~~~~~~~~~~~*/
 export function getCountries() {
     return async function (dispatch) {
         let countries = await axios.get('/Countries');
@@ -52,6 +55,32 @@ export function getActivities() {
     }
 }
 
+/*~~~~~~~~~~~~~~POST~~~~~~~~~~~~~~*/
+export function postActivity(data) {
+    return async function (dispatch) {
+        let newActivity = await axios.post('/Activities', data);
+        return newActivity;
+    }
+}
+
+/*~~~~~~~~~~~~~~DELETE~~~~~~~~~~~~~~*/
+export function deleteActivity(id) {
+    return async function (dispatch) {
+        await axios.delete(`/Activities/deleteActivity/${id}`)
+        return dispatch({ type: DELETE_ACTIVITY });
+    }
+}
+
+/*~~~~~~~~~~~~~~PUT~~~~~~~~~~~~~~*/
+export function putActivity(idAct, data) {
+    return async function (dispatch) {
+        await axios.put(`/Activities/putActivity/${idAct}`, data)
+        return dispatch({ type: PUT_ACTIVITY });
+    }
+}
+
+
+/*~~~~~~~~~~~~~~FILTERS~~~~~~~~~~~~~~*/
 export function filterCountriesByActivity(activity) {
     return async function (dispatch) {
         if (activity !== 'All') {
@@ -88,6 +117,8 @@ export function filterCountriesByContinent(continent) {
     }
 }
 
+/*~~~~~~~~~~~~~~ORDERS~~~~~~~~~~~~~~*/
+
 // export function orderByPopulation(order) {
 //     return async function (dispatch) {
 //         if (order !== 'All') {
@@ -123,9 +154,3 @@ export function orderByName(payload) {
     }
 }
 
-export function postActivity(data) {
-    return async function (dispatch) {
-        let newActivity = await axios.post('/Activities', data);
-        return newActivity;
-    }
-}

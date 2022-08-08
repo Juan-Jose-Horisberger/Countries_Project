@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
-import { getActivities, getCountries, postActivity } from '../../Redux/Actions';
+import { Link, useHistory, useParams } from 'react-router-dom';
+import { getActivities, getCountries, postActivity, getCountriesById, putActivity } from '../../Redux/Actions';
 import styles from './CreateActivity.module.css'
 import { validate } from './Validate.js'
 
 export default function CreateActivity() {
+    const { id, idAct } = useParams();
     const history = useHistory();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const countries = useSelector(state => state.countries);
+    const allActivities = useSelector(state => state.activities);
+    const countryDetail = useSelector(state => state.countryDetail);
 
     const [input, setInput] = useState({
         name: "",
@@ -24,10 +27,62 @@ export default function CreateActivity() {
     let [countryCounter, setCountryCounter] = useState(0); //Contador de cada pais
 
     const [errorsExist, setErrorsExist] = useState(true); // Este estado local habilita el submit
-
-    // const [notifications, setNotifications] = useState({ success: "", });
-
     const [error, setError] = useState({}); //estado maneja errores
+
+    //UPDATE
+    const [update, setUpdate] = useState(false);
+    const [dispatchDone, setDispatchDone] = useState(false);
+    const [detailDone, setDetailDone] = useState(false);
+
+    async function loadData() {
+        //para que el dispatch no se haga dos veces cuando carga input.image
+        if (detailDone === false) {
+            if (id) {
+                await dispatch(getCountriesById(id));
+                setDetailDone(true);
+            }
+        }
+        const countryListDb = [];
+        if (countryDetail.length) {
+            for (let i = 1; i <= countryDetail[0].activities.length; i++) {
+                const country = {
+                    number: [i],
+                    description: countryDetail[0].name,
+                };
+                countryListDb.push(country);
+                setCountryCounter([i]);
+            }
+            setInput({ //Decidi no pasarles valores a difficult, duration y season porque no puedo hacer que el value de esos inputs, esten en el valor en el que fueron seleccionados en primera instancia.
+                ...input,
+                name: countryDetail[0].activities[0].name,
+                difficult: "",
+                duration: 0,
+                season: "",
+                Countries: '',
+            });
+
+            // console.log(countryDetail[0].activities[0].difficult)
+            setSelectedCountries(countryListDb);
+
+            if (!update) {
+                setUpdate(true);
+            }
+        }
+    }
+
+    useEffect(() => {
+        async function asyncControl() {
+            if (!dispatchDone) {
+                await dispatch(getCountries());
+                setDispatchDone(true);
+            }
+            if (id) {
+                loadData();
+            }
+        }
+        asyncControl();
+    }, [dispatch, dispatchDone, detailDone]);
+
 
     function handleChange(e) {
         const objError = validate({ ...input, [e.target.name]: e.target.value });
@@ -38,7 +93,6 @@ export default function CreateActivity() {
             ...input,
             [e.target.id]: e.target.value
         })
-
     }
 
     function handleSelectedCountries(e) {
@@ -120,6 +174,19 @@ export default function CreateActivity() {
             selectedCountries.length > 0
         ) {
             const selected_Countries = selectedCountries.map(e => e.description)
+
+            //Validamos que si la activity ya existe
+            const activity = allActivities.filter(a => a.name === input.name.trim());
+
+            if (activity.length) {
+                for (let i = 0; i < selected_Countries.length; i++) {
+                    var activityRepeat = activity[0].countries.find(c => c.name === selected_Countries[i])
+                    if (activityRepeat) {
+                        alert(`Error the activity you want to create for the country ${selectedCountries[i].description}, it is already created`)
+                        return window.location.reload(false); //Refresh
+                    }
+                }
+            }
             input.Countries = selected_Countries;
 
             const Activity = {
@@ -130,30 +197,33 @@ export default function CreateActivity() {
                 Countries: input.Countries
             }
 
-            // Promise.all([
-            //     dispatch(postActivity(Activity)),
-            //     dispatch(getActivities())
-            // ])
+            if (!id && !idAct) {
+                dispatch(postActivity(Activity))
+                    .then(res => res && dispatch(getActivities()))
+                    .then(res => res && dispatch(getCountries()))
+                    .then(alert("Activity created."))
+                    .then(res => res && history.push('/Home'))
+                    .catch(err => console.log(err));
+            }
+            else {
+                if (idAct) {
+                    dispatch(putActivity(idAct, input))
+                        .then(res => res && dispatch(getActivities()))
+                        .then(res => res && dispatch(getCountries()))
+                        .then(alert("Modified activity."))
+                        .then(history.push('/Home'))
+                        .catch(err => console.log(err));
+                }
+            }
 
-            // dispatch(postActivity(Activity))
 
-            Promise.all([
-                dispatch(postActivity(Activity)),
-                dispatch(getActivities()),
-                dispatch(getCountries())
-            ])
-                .then(alert("Activity created."))
-                .catch(err => console.log(err));
-
-            setInput({
-                name: "",
-                difficult: "",
-                duration: 0,
-                season: "",
-                Countries: ''
-            })
-
-            history.push('/Home');
+            // setInput({
+            //     name: "",
+            //     difficult: "",
+            //     duration: 0,
+            //     season: "",
+            //     Countries: ''
+            // })
         }
     }
 
@@ -166,6 +236,7 @@ export default function CreateActivity() {
             return;
         }
         dispatch(getCountries())
+        dispatch(getActivities())
     })
 
     return (
@@ -212,6 +283,7 @@ export default function CreateActivity() {
                         </div>
 
                         <div className={styles.containerNrm2}>
+                            {/* {console.log(input)} */}
                             <div className={styles.containerInputDificult}>
                                 <label>Difficult: </label>
                                 <select
@@ -236,7 +308,6 @@ export default function CreateActivity() {
 
                         <div className={styles.containerNrm3}>
                             <div className={styles.containerInputDuration}>
-                                {console.log(input.duration)}
                                 <label>Duration: </label>
                                 <input
                                     id='duration'

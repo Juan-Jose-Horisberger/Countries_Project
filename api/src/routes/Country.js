@@ -9,8 +9,10 @@ const {
   
   //Creating routes and adding the controllers.
   
+  // GETS
   router.get("/", getCountries);
   router.get("/:id", getCountry);
+
 
   // FILTER
   router.get("/filterContinent/:continent", getContinent); 

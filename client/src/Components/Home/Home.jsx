@@ -24,12 +24,6 @@ export default function Home() {
    const [isToggle, setIsToggle] = useState(false);
    const [isClosedFilter, setIsClosedFilter] = useState(false);
 
-   const [relogFilters, setRelogFilters] = useState(false);
-   const [target, setTarget] = useState('');
-
-   //<------Filtered------->
-   const [filtered, setFiltered] = useState(true);
-
    //<------Order----->
    const [order, setOrder] = useState("");
 
@@ -69,11 +63,11 @@ export default function Home() {
    }, [])
 
    function handleClick(e) {
-      e.preventDefault();
-      dispatch(getCountries());
-      dispatch(getActivities());
-      window.scrollTo(0, 0); //Para cuando se haga un refresh
-      setRelogFilters(true); //Para setear los filtros en su value inicial
+      // e.preventDefault();
+      // dispatch(getCountries());
+      // dispatch(getActivities());
+      // window.scrollTo(0, 0); //Para cuando se haga un refresh
+      window.location.reload(false)
    }
 
    function handleFilterType(e) {
@@ -255,6 +249,8 @@ export default function Home() {
                      countriesPerPage={countriesPerPage}
                      allCountries={allCountries.length}
                      pagination={pagination}
+                     currentPage={currentPage}
+                     setCurrentPage={setCurrentPage}
                   />
 
                </div>

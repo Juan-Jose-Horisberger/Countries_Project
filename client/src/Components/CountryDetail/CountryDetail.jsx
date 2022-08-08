@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { getCountriesById } from '../../Redux/Actions';
+import { getCountriesById, deleteActivity, getCountries, getActivities } from '../../Redux/Actions';
 import styles from './CountryDetail.module.css'
 
 export default function CountryDetail() {
@@ -9,6 +9,19 @@ export default function CountryDetail() {
     const dispatch = useDispatch();
     const country = useSelector(state => state.countryDetail);
     const [loaded, setLoaded] = useState(false);
+
+    function handleDeleteActivity(e, idAct) {
+        e.preventDefault();
+        dispatch(deleteActivity(idAct))
+            .then(dispatch(getActivities()))
+            .catch(err => console.log(err + 'entra aca? xd'))
+    }
+
+    useEffect(() => {
+        dispatch(getCountriesById(id))
+            .then(res => res && dispatch(getCountries()))
+            .catch(err => console.log(err))
+    }, [handleDeleteActivity])
 
     useEffect(async (e) => {
         await dispatch(getCountriesById(id))
@@ -54,11 +67,18 @@ export default function CountryDetail() {
                                                         : <h2>Activities</h2>
                                                 }
                                             </div>
-                                            <div className={styles.algo}>
+                                            <div className={styles.containerActivity}>
                                                 {
-                                                    country[0].activities?.map(obj => {
+                                                    country[0].activities?.map((obj, i) => {
                                                         return (
-                                                            <div>
+                                                            <div key={i}>
+                                                                <div className={styles.containerButtons}>
+                                                                    <Link to={`/update-activity/${id}/${obj.id}`}>
+                                                                        {/* <button>Update</button> */}
+                                                                        Update
+                                                                    </Link>
+                                                                    <button onClick={(e) => handleDeleteActivity(e, obj.id)}>Delete</button>
+                                                                </div>
                                                                 <p>Name activity: {obj.name}</p>
                                                                 <p>Difficult: {obj.difficult}</p>
                                                                 <p>Duration: {obj.duration}</p>

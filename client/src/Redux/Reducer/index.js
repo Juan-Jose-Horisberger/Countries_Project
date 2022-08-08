@@ -7,7 +7,9 @@ import {
     ORDER_BY_NAME,
     COUNTRY_BY_NAME,
     COUNTRY_BY_ID,
-    POST_ACTIVITY
+    POST_ACTIVITY,
+    DELETE_ACTIVITY,
+    PUT_ACTIVITY
 } from "../Actions/ActionsTypes";
 
 const initialState = {
@@ -99,6 +101,14 @@ const rootReducer = (state = initialState, { type, payload }) => {
             }
         }
         case POST_ACTIVITY:
+            return {
+                ...state
+            }
+        case DELETE_ACTIVITY:
+            return {
+                ...state
+            }
+        case PUT_ACTIVITY:
             return {
                 ...state
             }

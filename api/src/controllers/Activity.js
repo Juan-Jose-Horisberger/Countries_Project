@@ -1,7 +1,10 @@
 const { Activity, Country } = require('../db');
 const { json } = require('express');
 const { getFilteredActivity } = require('./utils');
+const { Op } = require('sequelize');
 
+
+//~~~~~~~~~~~~~~GET~~~~~~~~~~~~~~\\
 const getActivities = async (req, res, next) => {
     try {
         const allActivities = await Activity.findAll({
@@ -9,12 +12,29 @@ const getActivities = async (req, res, next) => {
         });
         allActivities.length
             ? res.send(allActivities)
-            : res.status(400).json({ message: 'Error reading database' })
+            : []
     } catch (e) {
         next(e);
     }
 }
 
+//Ruta de filtrar paises por actividad turistica 
+const getTouristActivity = async (req, res, next) => {
+    const { activity } = req.params;
+    try {
+        if (activity) {
+            const allCountries = await getFilteredActivity(activity);
+            allCountries.length
+                ? res.send(allCountries)
+                : res.status(400).json({ message: 'No countries associated with this activity were found' });
+        }
+    }
+    catch (e) {
+        next(e);
+    }
+}
+
+//~~~~~~~~~~~~~~POST~~~~~~~~~~~~~~\\
 const addActivities = async (req, res, next) => {
     const {
         name,
@@ -92,24 +112,83 @@ const addActivities = async (req, res, next) => {
     }
 }
 
-//Ruta de filtrar paises por actividad turistica 
-const getTouristActivity = async (req, res, next) => {
-    const { activity } = req.params;
+//~~~~~~~~~~~~~~DELETE~~~~~~~~~~~~~~\\
+const deleteActivity = async (req, res, next) => {
+    const { id } = req.params;
+
     try {
-        if(activity){
-            const allCountries = await getFilteredActivity(activity);
-            allCountries.length 
-            ? res.send(allCountries)
-            : res.status(400).json({message: 'No countries associated with this activity were found'});
+        if (id) {
+            const idActivity = parseInt(id)
+            const eliminatedActivity = await Activity.findByPk(idActivity);
+            if (eliminatedActivity) {
+                eliminatedActivity.destroy() && res.send("Eliminated country");
+            }
+            else {
+                res.status(400).json({ message: 'Error this activity was not found' });
+            }
         }
     }
     catch (e) {
-        next(e);
+        next(e)
+    }
+}
+
+//~~~~~~~~~~~~~~PUT~~~~~~~~~~~~~~\\
+const putActivity = async (req, res, next) => {
+    const { idAct } = req.params;
+    const {
+        name,
+        difficult,
+        duration,
+        season,
+        Countries
+    } = req.body;
+
+    if (!idAct) {
+        res.status(400).json({ message: 'an ID was not sent' })
+    }
+    if (!name || !difficult || !duration || !season || !Countries) {
+        res.status(400).json({ message: 'Missing to send mandatory data' })
+    }
+    try {
+        const modifiedId = parseInt(idAct);
+
+        const updateActivity = await Activity.findOne({
+            where: {
+                id: modifiedId,
+            },
+        })
+
+        await updateActivity.update({
+            name: name,
+            difficult: difficult,
+            duration: duration,
+            season: season,
+        })
+
+        let countriesFromDb = await Country.findAll({
+            where: {
+                name: {
+                    [Op.in]: Countries, //Seleccina todo lo que haya en el array Countries 
+                }
+            }
+        })
+
+        await updateActivity.setCountries(countriesFromDb) //Como pueden ser varios paises, el set siempre debe set en plural.
+
+        res.status(201).send({
+            successMsg: "Game successfully updated",
+        });
+    }
+    catch (e) {
+        next(e)
     }
 }
 
 module.exports = {
     getActivities,
     addActivities,
-    getTouristActivity
+    getTouristActivity,
+    deleteActivity,
+    putActivity
 }

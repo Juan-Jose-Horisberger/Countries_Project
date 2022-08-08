@@ -117,7 +117,7 @@ p {
     width: 100%;
 }
 
-.algo {
+.containerActivity {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -125,12 +125,44 @@ p {
 }
 
 
-.algo div {
+.containerActivity div {
     width: 280px;
     margin: 20px 20px;
     background-color: rgb(134, 134, 134);
     border-radius: 5px;
 }
+
+
+.containerActivity .containerButtons{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 0;
+    margin-top: 10px;
+}
+
+.containerActivity .containerButtons button,
+.containerActivity .containerButtons a 
+{
+    padding: 6px 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    color: white;
+    font-family: 'Readex Pro', sans-serif;
+    background-color: #4D4A4A;
+}
+
+.containerActivity .containerButtons button:hover,
+.containerActivity .containerButtons a:hover
+{
+    cursor: pointer;
+    box-shadow: 0 0 10px white;
+    background-color: #6B6B6B;
+}
+
 
 @media screen and (max-width: 992px) {
     .containerNum1 {
@@ -219,5 +251,21 @@ p {
     .containerInfo{
         width: 90%;
         padding: 0;
+    }
+    .containerActivity .containerButtons{
+        flex-direction: column;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .containerActivity .containerButtons a{
+        width: 100%;
+        height: 31;
+        background-color: #4D4A4A;
+        margin-bottom: 15px;
+        text-align: center;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

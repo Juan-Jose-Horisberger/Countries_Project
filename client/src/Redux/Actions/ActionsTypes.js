@@ -7,3 +7,5 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const ORDER_BY_NAME = "ORDER_BY_NAME"; //Esta desde el front
 export const POST_ACTIVITY = "POST_ACTIVITY";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
+export const PUT_ACTIVITY = "PUT_ACTIVITY";
