@@ -38,7 +38,7 @@ export default function Pagination({ countriesPerPage, allCountries, pagination,
 
                     />
 
-                    <input name="page" autoComplete="off" value={input} disabled onChange={(e) => handleChange(e)} />
+                    <input name="page" autoComplete="off" value={input} disabled />
                     <p>de {pageNumbers.length}</p>
 
 
