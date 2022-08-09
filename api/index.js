@@ -31,9 +31,8 @@ conn.sync({ force: false }).then(async () => {
       dbLoader();
     }
 
-    var port = process.env.PORT || 3000;
-  server.listen(port, "0.0.0.0", () => {
-    console.log('%s listening at 3000'); // eslint-disable-line no-console
+  server.listen(process.env.PORT, () => {
+    console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 
 });
