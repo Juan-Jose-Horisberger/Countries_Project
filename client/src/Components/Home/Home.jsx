@@ -49,9 +49,11 @@ export default function Home() {
          setLoaded(true);
          return;
       }
-      dispatch(getCountries())
-         .then(res => res && setLoaded(true))
-         .catch(err => console.log(err))
+      else {
+         dispatch(getCountries())
+            .then(res => res && setLoaded(true))
+            .catch(err => console.log(err))
+      }
    }
 
    useEffect(async () => {
@@ -143,7 +145,9 @@ export default function Home() {
                      <p>Create tourist activity</p>
                   </Link>
                </ul>
-               <SearchBar />
+               <SearchBar
+                  setCurrentPage={setCurrentPage}
+               />
             </div>
          </div>
 

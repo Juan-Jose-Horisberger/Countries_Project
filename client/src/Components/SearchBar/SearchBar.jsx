@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getCountriesByName } from '../../Redux/Actions';
 import styles from './SearchBar.module.css'
 
-export default function SearchBar() {
+export default function SearchBar({ setCurrentPage }) {
     const [country, setCountry] = useState('');
 
     const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export default function SearchBar() {
         e.preventDefault();
         const reg = /^[a-z ]+$/i;
 
-        if(!country.length){
+        if (!country.length) {
             alert(`This field is empty`);
             setCountry('');
             return;
@@ -26,8 +26,9 @@ export default function SearchBar() {
             setCountry('');
             return;
         }
-        
+
         dispatch(getCountriesByName(country));
+        setCurrentPage(1);
         setCountry(''); //borderError
     }
     return (
