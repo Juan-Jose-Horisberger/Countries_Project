@@ -136,13 +136,13 @@ export default function Home() {
             <div className={`${styles.containerNavegarion} ${isToggle && styles.open}`}>
                <ul>
                   <Link to='/About' className={styles.link}>
-                     <p>About</p>
+                     <p className='m-0'>About</p>
                   </Link>
                   <li className={styles.list}>
-                     <p onClick={(e) => { handleClick(e) }}>Reload page</p>
+                     <p className='m-0' onClick={(e) => { handleClick(e) }}>Reload page</p>
                   </li>
                   <Link to='/CreateActivity' className={styles.link}>
-                     <p>Create tourist activity</p>
+                     <p className='m-0'>Create tourist activity</p>
                   </Link>
                </ul>
                <SearchBar
@@ -259,7 +259,18 @@ export default function Home() {
 
                </div>
             ) : (
-               <p>Loading...</p>
+               <div
+                  className={`d-flex justify-content-center flex-column ${styles.container_loading}`}
+               >
+                  <p>Cargando...</p>
+                  <div
+                     className={`spinner-border ${styles.loading}`}
+                     style={{ width: "4rem", height: "4rem" }}
+                     role="status"
+                  >
+                     <span className="visually-hidden"></span>
+                  </div>
+               </div>
             )
          }
 

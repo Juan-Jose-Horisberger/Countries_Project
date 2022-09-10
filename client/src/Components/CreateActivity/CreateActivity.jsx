@@ -258,7 +258,7 @@ export default function CreateActivity() {
             <div className={styles.containerForm}>
                 <div className={styles.containerHome}>
                     <Link to='/Home'>
-                        <p>Home</p>
+                        <p className='m-0'>Home</p>
                     </Link>
                 </div>
                 <div className={styles.container2}>

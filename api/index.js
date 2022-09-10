@@ -28,7 +28,7 @@ conn.sync({ force: false }).then(async () => {
 
     const allInfo = await Country.findAll({ include: Activity });
     if (!allInfo.length) {
-      dbLoader();
+      await dbLoader();
     }
 
   server.listen(process.env.PORT, () => {

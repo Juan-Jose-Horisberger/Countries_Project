@@ -31,12 +31,13 @@
 }
 
 .containerTitle h1 {
+    font-size: 35px;
     color: white;
     font-family: 'Audiowide', cursive;
 }
 
 .containerNavegarion {
-    width: 66%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -52,6 +53,7 @@
     justify-content: space-between;
     /* margin: 0px 10px; */
     padding-left: 6px;
+    margin: 0;
 }
 
 .containerNavegarion ul p {
@@ -265,6 +267,8 @@
 
 .containerCountries {
     /* border: 1px solid black; */
+    min-height: 477px;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -275,6 +279,7 @@
 
 .divsCountries {
     width: 30%;
+    /* height: 350px; */
     margin-bottom: 50px;
     border: 1px solid rgb(100, 100, 100);
     border-radius: 10px;
@@ -316,7 +321,7 @@
     position: absolute;
     left: 0;
     background-color: black;
-    background-color:#919191;
+    background-color: #919191;
     transition: all 0.5s;
 }
 
@@ -351,6 +356,22 @@
 .mostrar {
     display: block;
 }
+
+.container_loading {
+    height: 540px;
+    align-items: center;
+    margin-bottom: 175px;
+}
+
+.container_loading p {
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    flex-direction: column !important;
+    color: rgb(66, 66, 66);
+
+}
+
 
 
 @media screen and (max-width: 992px) {
@@ -413,7 +434,6 @@
         height: 0px;
         overflow: hidden;
         transition: transform 0.5s, opacity 0.5s ease-out;
-
         background-color: rgb(32, 32, 32);
     }
 
@@ -433,6 +453,10 @@
         margin: 0px 10px;
         text-align: start;
         padding: 0;
+    }
+
+    .containerNavegarion ul p {
+        margin-bottom: 15px !important;
     }
 
 }

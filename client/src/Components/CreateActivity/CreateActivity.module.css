@@ -21,12 +21,24 @@
     height: auto;
     margin-top: 60px;
     text-align: start;
-    border: 1px solid rgb(0, 0, 0);
-    background-color: rgb(184, 176, 176);
+    background-color: rgb(66, 66, 66);
     box-shadow: 0 0 10px white;
     padding: 15px;
     display: flex;
     align-self: flex-start;
+}
+
+.containerInfo h1, p{
+    color: #a7a7a7;
+}
+
+label{
+    color:rgb(66, 66, 66);
+}
+
+input{
+    outline: none;
+    border: none;
 }
 
 

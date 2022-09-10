@@ -10,7 +10,7 @@ export default function Pagination({ countriesPerPage, allCountries, currentPage
 
     const [input, setInput] = useState(1);
 
-    if(pageNumbers === 1){
+    if (pageNumbers === 1) {
         setInput(1);
     }
 
@@ -34,7 +34,7 @@ export default function Pagination({ countriesPerPage, allCountries, currentPage
                     />
 
                     <input name="page" autoComplete="off" value={input} disabled />
-                    <p>de {pageNumbers.length}</p>
+                    <p className="m-0">de {pageNumbers.length}</p>
 
 
                     <img
