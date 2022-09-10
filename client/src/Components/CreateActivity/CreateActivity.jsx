@@ -246,7 +246,7 @@ export default function CreateActivity() {
                     <h1>Create Activity</h1>
                     <div className={styles.containerHome2}>
                         <Link to='/Home'>
-                            <p>Home</p>
+                            <p className='m-0'>Home</p>
                         </Link>
                     </div>
                     <p>
