@@ -10,7 +10,7 @@ export default function About() {
         <div className={styles.containerAll}>
             <div className={styles.container}>
                 <div className={styles.containerAboutMe}>
-                    <h1>About me</h1>
+                    <h1 className='text-light'>About me</h1>
                     <div>
                         <Link to='/Home'>
                             <button>Home</button>
@@ -19,11 +19,11 @@ export default function About() {
                     <p>My name is Juan José Horisberger, I am from Buenos Aires, Argentina. Today I am on the path to becoming a Full-Stack web developer. I decided to be part of SoyHenry, an intensive bootcamp that has more than 700 hours of study where he learned technologies such as JavaScript, ReactJs, Redux, React-Redux, NodeJs, Express, PostgreSQL, Sequelize among others.</p>
                 </div>
                 <div className={styles.containerInfoProyect}>
-                    <h2>Information about the project</h2>
+                    <h2 className='text-light'>Information about the project</h2>
                     <p>This individual project is intended to be able to publicize the knowledge acquired during the Bootcamp. The main idea of ​​the project was to make a SPA (Single Page Application) with the theme "Countries of the world" where it was necessary to bring the information from an external API ("Rest Countries") and then store it in its own database.</p>
                 </div>
                 <div className={styles.containerContactInfo}>
-                    <h3>Contact information</h3>
+                    <h3 className='text-light'>Contact information</h3>
                     <ul>
                         <li>
                             <a href="mailto:juanjhorisberger@gmail.com?Subject=Propuesta%20laboral">

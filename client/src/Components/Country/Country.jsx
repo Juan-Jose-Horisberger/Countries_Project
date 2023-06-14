@@ -9,7 +9,7 @@ export default function Country({ name, img, continents, id }) {
         <h1>{name}</h1>
 
         <img src={img} alt="Image" />
-        <p>{continents}</p>
+        <p className='text-light'>{continents}</p>
       </Link>
     </div>
   )

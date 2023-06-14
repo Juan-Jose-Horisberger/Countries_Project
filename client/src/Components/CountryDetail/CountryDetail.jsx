@@ -36,9 +36,9 @@ export default function CountryDetail() {
                         <div className={styles.containerNum1}>
                             <div className={styles.containerHomeAndName}>
                                 <div>
-                                    <Link to='/Home'><h2>Home</h2></Link>
+                                    <Link className='d-flex mt-1' to='/Home'>Home</Link>
                                 </div>
-                                <h1>{country[0].name}</h1>
+                                <h1 className='text-light'>{country[0].name}</h1>
                             </div>
 
                             <div className={styles.dataContainer}>
@@ -63,8 +63,8 @@ export default function CountryDetail() {
                                             <div className={styles.containerTitle}>
                                                 {
                                                     country[0].activities.length === 1
-                                                        ? <h2>Activity</h2>
-                                                        : <h2>Activities</h2>
+                                                        ? <h2 className='text-light'>Activity</h2>
+                                                        : <h2 className='text-light'>Activities</h2>
                                                 }
                                             </div>
                                             <div className={styles.containerActivity}>
@@ -79,10 +79,10 @@ export default function CountryDetail() {
                                                                     </Link>
                                                                     <button onClick={(e) => handleDeleteActivity(e, obj.id)}>Delete</button>
                                                                 </div>
-                                                                <p>Name activity: {obj.name}</p>
-                                                                <p>Difficult: {obj.difficult}</p>
-                                                                <p>Duration: {obj.duration}</p>
-                                                                <p>Season: {obj.season}</p>
+                                                                <p className='text-light'>Name activity: {obj.name}</p>
+                                                                <p className='text-light'>Difficult: {obj.difficult}</p>
+                                                                <p className='text-light'>Duration: {obj.duration}</p>
+                                                                <p className='text-light'>Season: {obj.season}</p>
                                                             </div>
                                                         )
                                                     })
@@ -91,7 +91,7 @@ export default function CountryDetail() {
                                         </div>
                                     )
                                     : (
-                                        <p>There are no tourist activities</p>
+                                        <p className='m-0 p-3'>There are no tourist activities</p>
                                     )
                             }
                         </div>
